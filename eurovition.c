@@ -5,6 +5,11 @@
 #include <assert.h>
 #include "E:\Documents\studies\mtm\hw-1\map.h"
 
+struct eurovision_t {
+    
+};
+
+
 Eurovision eurovisionCreate();
 void eurovisionDestroy(Eurovision urovision);
 EurovisionResult eurovisionAddState (Eurovision urovision, int stateId const char* stateName, const char* songName);
