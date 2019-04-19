@@ -5,8 +5,21 @@
 #include <assert.h>
 #include "E:\Documents\studies\mtm\hw-1\map.h"
 
+typedef state_t {
+    int serial_number;
+    char* state_name;
+    char* song_name;
+    long long int count;
+} *State;
+
+typedef struct judge_t{
+    int serial_number;
+    char* judge_name;
+    List;
+} *Judge;
+
 struct eurovision_t {
-    
+
 };
 
 
