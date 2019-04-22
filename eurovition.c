@@ -43,22 +43,24 @@ stateData copyStateData(StateData dataToCopy){
     if(stateDataNew == NULL){
         return NULL;
     } else{
-        if(stringCopy(dataToCopy->stateName) == NULL){
+        stateDataNew->stateName = stringCopy(dataToCopy->stateName);
+        if(stateDataNew->stateName == NULL) {
             return NULL;
-        }else{
-            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
         }
-        if(stringCopy(dataToCopy->songName) == NULL){
+        stateDataNew->songName = stringCopy(dataToCopy->songName);
+        if(stateDataNew->songName == NULL){
             free(dataToCopy->stateName)
             return NULL;
-        }else {
-            stateDataNew->songName = stringCopy(dataToCopy->songName);
         }
-        Map citizenVote = mapCopy(dataToCopy->citizenVote);
-        if
+        Map citizenVoteDest = mapCopy(dataToCopy->citizenVote);
+        if(citizenVoteDest == NULL){
+            free(dataToCopy->stateName);
+            free(dataToCopy->songName);
+            return NULL;
+        }
+        dataToCopy->citizenVote = citizenVoteDest;
     }
-
-
+    return stateDataNew;
 }
 
 int copyVoteDataElement(int Vote){
