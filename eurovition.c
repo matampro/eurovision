@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <assert.h>
 #include "map.h"
-
+#define NUMBER_OF_RESULTS 10
 
 typedef struct {
     char *stateName;
@@ -77,7 +77,7 @@ void freeKeyElement(int KeyElement){
     return;
 }
 
-int compareVoteKeyElements(int KeyElement1,int KeyElement2){
+int CompareKeyElements(int KeyElement1,int KeyElement2){
     if (KeyElement1 > KeyElement2){
         return 1;
     }
@@ -91,21 +91,36 @@ int compareVoteKeyElements(int KeyElement1,int KeyElement2){
 
 JudgeData copyJudgeDataElement(JudgeData judgeDataToCopy){
     JudgeData NewJudgeData = malloc(sizeof(JudgeData));
-    if (NewJudgeData == NULL){}
+    if (NewJudgeData == NULL)
         return MAP_OUT_OF_MEMORY;
     }
-    
-    NewJudgeData->judgeName = judgeDataToCopy->judgeName;
-    NewJudgeData->judgeResults = judgeDataToCopy->judgeResults;
+    char* Name = stringCopy(judgeDataToCopy->judgeName);
+    if (Name == NULL){
+        return MEMORY_ERROR;
+    }
+    NewJudgeData->judgeName = Name;
+    NewJudgeData->judgeResults = malloc(sizeof(NUMBER_OF_RESULTS));
+    if (New){
+        return MAP_MEMORY_P
+    }
+    for(i = 0; i < NUMBER_OF_RESULTS; i++){
+        NewJudgeData->judgeResults[i] = judgeDataToCopy->judgeResults[i];
+    }
     return NewJudgeData;
 
 
-void freeJudgeDataElement(){
-
+void freeJudgeDataElement(JudgeData judgeDataToDelete){
+    free(judgeDataToDelete->judgeName);
+    free(judgeDataToDelete->judgeResults);
 }
 
 
-Eurovision eurovisionCreate();
+Eurovision eurovisionCreate(){
+    Map State = mapCreate(copyStateDataElement, copyKeyElement, freeStateDataElement, freeKeyElement, compareKeyElements);
+    Map Vote =  mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeVoteKeyElement, compareKeyElements);
+    Map Judge = mapCreate(copyJudgeDataElement, copyKeyElement, freeJudgeDataElement, freeKeyElement, compareKeyElements);
+
+};
 
 void eurovisionDestroy(Eurovision eurovision);
 
