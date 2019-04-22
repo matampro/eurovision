@@ -25,7 +25,14 @@ typedef struct {
 Map State = mapCreate(copyStateDataElement, copyStateKeyElement, freeStateDataElement, freeStateKeyElement, compareStateKeyElements);
 Map Judge = mapCreate(copyDataElement, copyKeyElement, freeDataElement, freeKeyElement, compareKeyElements);
 
-bool str
+char* strCopy(char* str){
+    int strLen = strlen(str);
+    char* strCopy = malloc(sizeof(strLen+1));
+    if(stateName == NULL){
+        return NULL;
+    }else{
+        stateDataNew->stateName = stateCopyName;
+}
 
 stateData copyStateData(StateData dataToCopy){
     stateData stateDataNew = malloc(sizeof(*stateDataNew));
