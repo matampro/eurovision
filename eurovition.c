@@ -9,7 +9,7 @@
 typedef struct {
     char* stateName;
     char* songName;
-    struct CitizenVote* next;
+    Map CitizenVote* next;
 } *StateData;
 
 typedef struct {
@@ -22,14 +22,36 @@ typedef struct {
     Map judge;
 }*Eurovision;
 
-copyMapDataElements
+bool str
+
+stateData copyStateData(StateData dataToCopy){
+    stateData stateDataNew = malloc(sizeof(*stateDataNew));
+    if(stateDataNew == NULL){
+        return NULL;
+    } else{
+        int strLen = strlen(dataToCopy->stateName);
+        char* stateCopyName = malloc(sizeof(strLen+1));
+        if(stateName == NULL){
+            return NULL;
+        }else{
+            stateDataNew->stateName = stateCopyName;
+        }
+
+    }
+
+               int strLen = strLen(dataToCopy->stateName);
+    char* stateName= malloc(sizeof(StateData)
+
+
+}
+
 
 Eurovision eurovisionCreate(Eurovision eurovision){
-    mapCreate(copyMapDataElements copyDataElement,
-            copyMapKeyElements copyKeyElement,
-            freeMapDataElements freeDataElement,
-            freeMapKeyElements freeKeyElement,
-            compareMapKeyElements compareKeyElements)
+    Map mapState = mapCreate(copyMapDataElements copyDataElement,
+                              copyMapKeyElements copyKeyElement,
+                                freeMapDataElements freeDataElement,
+                                 freeMapKeyElements freeKeyElement,
+                                  compareMapKeyElements compareKeyElements)
 }
 
 
