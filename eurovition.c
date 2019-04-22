@@ -22,7 +22,7 @@ typedef struct {
     Map judge;
 }*Eurovision;
 
-
+copyMapDataElements
 
 Eurovision eurovisionCreate(Eurovision eurovision){
     mapCreate(copyMapDataElements copyDataElement,
