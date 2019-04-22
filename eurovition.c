@@ -7,9 +7,9 @@
 
 
 typedef struct {
-    char* stateName;
-    char* songName;
-    Map CitizenVote* next;
+    char *stateName;
+    char *songName;
+}Map CitizenVote* next;
 
 typedef struct {
     char* judgeName;
@@ -23,9 +23,8 @@ typedef struct {
 
 
 Map State = mapCreate(copyStateDataElement, copyStateKeyElement, freeStateDataElement, freeStateKeyElement, compareStateKeyElements);
-Map Judge = mapCreate(copyDataElement, copyKeyElement, freeDataElement, freeKeyElement, compareKeyElements);
-
-bool str
+Map Vote =  mapCreate(copyVoteDataElement, copyVoteKeyElement, freeVoteDataElement, freeVoteKeyElement, compareVoteKeyElements);
+Map Judge = mapCreate(copyJudgeDataElement, copyJudgeKeyElement, freeJudgeDataElement, freeJudgeKeyElement, compareJudgeKeyElements);
 
 stateData copyStateData(StateData dataToCopy){
     stateData stateDataNew = malloc(sizeof(*stateDataNew));
@@ -48,13 +47,39 @@ stateData copyStateData(StateData dataToCopy){
 
 }
 
-StateData copyStateDataElement(StateData DataToCopy){
-    StateData = malloc(sizeof(StateData));
-    if (StateData == NULL){
-        return MAP_OUT_OF_MEMORY;
-    }
-    StateData ->
+int copyVoteDataElement(int Vote){
+    return Vote;
 }
+
+int CopyVoteKeyElement (int VoteKeyElement){
+    return VoteKeyElement;
+}
+
+void freeVoteDataElement(VoteKeyElement voteDataElement){
+    return;
+}
+
+void freeVoteKeyElement(VoteKeyElement voteKeyElement){
+    return;
+}
+
+int compareVoteKeyElements(VoteKeyElement KeyElement1,VoteKeyElement KeyElement2){
+    if (KeyElement1 > KeyElement2){
+        return 1;
+    }
+    else if (KeyElement1 == KeyElement2){
+        return 0;
+    }
+    else{ //the second is bigger
+        return -1;
+    }
+}
+
+
+
+
+
+
 
 Eurovision eurovisionCreate(Eurovision eurovision){
     Map mapState = mapCreate(copyMapDataElements copyDataElement,
