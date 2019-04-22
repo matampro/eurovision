@@ -9,8 +9,8 @@
 typedef struct {
     char *stateName;
     char *songName;
-    Map CitizenVote* next;
-}*stateName;
+    Map citizenVote* next;
+}*stateData;
 
 typedef struct {
     char* judgeName;
@@ -27,14 +27,15 @@ Map State = mapCreate(copyStateDataElement, copyStateKeyElement, freeStateDataEl
 Map Vote =  mapCreate(copyVoteDataElement, copyVoteKeyElement, freeVoteDataElement, freeVoteKeyElement, compareVoteKeyElements);
 Map Judge = mapCreate(copyJudgeDataElement, copyJudgeKeyElement, freeJudgeDataElement, freeJudgeKeyElement, compareJudgeKeyElements);
 
-char* strCopy(char* str) {
+char* stringCopy(char* str) {
     int strLen = strlen(str);
-    char *strCopy = malloc(sizeof(strLen + 1));
-    if (strCopy == NULL) {
+    char *strDest = malloc(sizeof(strLen + 1));
+    if (strDest == NULL) {
         return NULL;
     } else {
-        return strCopy = strcpy(strCopy, str);
+        strcpy(strDest, str);
     }
+    return strDest;
 }
 
 stateData copyStateData(StateData dataToCopy){
@@ -42,31 +43,20 @@ stateData copyStateData(StateData dataToCopy){
     if(stateDataNew == NULL){
         return NULL;
     } else{
-        if(strCopy(dataToCopy->stateName) == NULL){
+        if(stringCopy(dataToCopy->stateName) == NULL){
             return NULL;
         }else{
-            stateDataNew->stateName = strCopy(dataToCopy->stateName);
+            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
         }
-        if(strCopy(dataToCopy->stateName) == NULL){
+        if(stringCopy(dataToCopy->songName) == NULL){
+            free(dataToCopy->stateName)
             return NULL;
-        }else{
-            stateDataNew->stateName = strCopy(dataToCopy->stateName);
+        }else {
+            stateDataNew->songName = stringCopy(dataToCopy->songName);
         }
-
-
+        Map citizenVote = mapCopy(dataToCopy->citizenVote);
+        if
     }
-        int strLen = strlen(dataToCopy->stateName);
-        char* stateCopyName = malloc(sizeof(strLen+1));
-        if(stateName == NULL){
-            return NULL;
-        }else{
-            stateDataNew->stateName = stateCopyName;
-        }
-
-    }
-
-               int strLen = strLen(dataToCopy->stateName);
-    char* stateName= malloc(sizeof(StateData)
 
 
 }
