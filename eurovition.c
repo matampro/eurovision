@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <assert.h>
 #include "map.h"
-
+#define NUMBER_OF_RESULTS 10
 
 typedef struct {
     char *stateName;
@@ -15,7 +15,7 @@ typedef struct {
 typedef struct {
     char* judgeName;
     int* judgeResults;
-} *judgeData;
+} *JudgeData;
 
 typedef struct {
     Map state;
@@ -23,9 +23,9 @@ typedef struct {
 }*Eurovision;
 
 
-Map State = mapCreate(copyStateDataElement, copyStateKeyElement, freeStateDataElement, freeStateKeyElement, compareStateKeyElements);
-Map Vote =  mapCreate(copyVoteDataElement, copyVoteKeyElement, freeVoteDataElement, freeVoteKeyElement, compareVoteKeyElements);
-Map Judge = mapCreate(copyJudgeDataElement, copyJudgeKeyElement, freeJudgeDataElement, freeJudgeKeyElement, compareJudgeKeyElements);
+Map State = mapCreate(copyStateDataElement, copyKeyElement, freeStateDataElement, freeKeyElement, compareKeyElements);
+Map Vote =  mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeVoteKeyElement, compareKeyElements);
+Map Judge = mapCreate(copyJudgeDataElement, copyKeyElement, freeJudgeDataElement, freeKeyElement, compareKeyElements);
 
 char* stringCopy(char* str) {
     int strLen = strlen(str);
@@ -67,19 +67,19 @@ int copyVoteDataElement(int Vote){
     return Vote;
 }
 
-int CopyVoteKeyElement (int VoteKeyElement){
+int CopyKeyElement (int KeyElement){
     return VoteKeyElement;
 }
 
-void freeVoteDataElement(VoteKeyElement voteDataElement){
+void freeVoteDataElement(int voteDataElement){
     return;
 }
 
-void freeVoteKeyElement(VoteKeyElement voteKeyElement){
+void freeKeyElement(int KeyElement){
     return;
 }
 
-int compareVoteKeyElements(VoteKeyElement KeyElement1,VoteKeyElement KeyElement2){
+int CompareKeyElements(int KeyElement1,int KeyElement2){
     if (KeyElement1 > KeyElement2){
         return 1;
     }
@@ -91,34 +91,61 @@ int compareVoteKeyElements(VoteKeyElement KeyElement1,VoteKeyElement KeyElement2
     }
 }
 
+JudgeData copyJudgeDataElement(JudgeData judgeDataToCopy){
+    JudgeData NewJudgeData = malloc(sizeof(JudgeData));
+    if (NewJudgeData == NULL)
+        return MAP_OUT_OF_MEMORY;
+    }
+    char* Name = stringCopy(judgeDataToCopy->judgeName);
+    if (Name == NULL){
+        return MEMORY_ERROR;
+    }
+    NewJudgeData->judgeName = Name;
+    NewJudgeData->judgeResults = malloc(sizeof(NUMBER_OF_RESULTS));
+    if (New){
+        return MAP_MEMORY_P
+    }
+    for(i = 0; i < NUMBER_OF_RESULTS; i++){
+        NewJudgeData->judgeResults[i] = judgeDataToCopy->judgeResults[i];
+    }
+    return NewJudgeData;
 
 
-
-
-
-
-Eurovision eurovisionCreate(Eurovision eurovision){
-    Map mapState = mapCreate(copyMapDataElements copyDataElement,
-                              copyMapKeyElements copyKeyElement,
-                                freeMapDataElements freeDataElement,
-                                 freeMapKeyElements freeKeyElement,
-                                  compareMapKeyElements compareKeyElements)
+void freeJudgeDataElement(JudgeData judgeDataToDelete){
+    free(judgeDataToDelete->judgeName);
+    free(judgeDataToDelete->judgeResults);
 }
 
 
-void eurovisionDestroy(Eurovision urovision);
-EurovisionResult eurovisionAddState (Eurovision urovision, int stateId const char* stateName, const char* songName);
-EurovisionResult eurovisionAddJudge(Eurovision urovision, int judgeId, const char* judgeName, int *judgeResults);
-EurovisionResult eurovisionRemoveState (Eurovision urovision, int stateId);
+Eurovision eurovisionCreate(){
+    Map State = mapCreate(copyStateDataElement, copyKeyElement, freeStateDataElement, freeKeyElement, compareKeyElements);
+    Map Vote =  mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeVoteKeyElement, compareKeyElements);
+    Map Judge = mapCreate(copyJudgeDataElement, copyKeyElement, freeJudgeDataElement, freeKeyElement, compareKeyElements);
+
+};
+
+void eurovisionDestroy(Eurovision eurovision);
+
+EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId,
+                                    const char *stateName,
+                                    const char *songName);
+
+EurovisionResult eurovisionRemoveState(Eurovision eurovision, int stateId);
+
+EurovisionResult eurovisionAddJudge(Eurovision eurovision, int judgeId,
+                                    const char *judgeName,
+                                    int *judgeResults);
+
 EurovisionResult eurovisionRemoveJudge(Eurovision eurovision, int judgeId);
-EurovisionResult eurovisionAddVote (Eurovision eurovision, int stateGiver, int stateTaker);
-EurovisionResult eurovisionRemoveVote (Eurovision eurovision, int stateGiver, int stateTaker);
-List eurovisionRunContest (Eurovision eurovision, int audiencePercent);
 
+EurovisionResult eurovisionAddVote(Eurovision eurovision, int stateGiver,
+                                   int stateTaker);
 
+EurovisionResult eurovisionRemoveVote(Eurovision eurovision, int stateGiver,
+                                      int stateTaker);
 
+List eurovisionRunContest(Eurovision eurovision, int audiencePercent);
 
-int main() {
-    eurovisionRunContest(,)
-    return 0;
-}
+List eurovisionRunAudienceFavorite(Eurovision eurovision);
+
+List eurovisionRunGetFriendlyStates(Eurovision eurovision);
