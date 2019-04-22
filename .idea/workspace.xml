@@ -77,7 +77,7 @@
       <list>
         <option value="$PROJECT_DIR$/eurovition.h" />
         <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/../../../../mtm/hw-1/ex1-v3/eurovision.h" />
+        <option value="$USER_HOME$/mtm/hw-1/ex1-v3/eurovision.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/eurovition.c" />
       </list>
@@ -165,7 +165,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/eurovition.h" />
-    <entry file="file://$PROJECT_DIR$/../../../../mtm/hw-1/ex1-v3/eurovision.h" />
+    <entry file="file://$USER_HOME$/mtm/hw-1/ex1-v3/eurovision.h" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
