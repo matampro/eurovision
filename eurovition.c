@@ -9,7 +9,7 @@
 typedef struct {
     char* stateName;
     char* songName;
-    struct CitizenVote* next;
+    int CitizenVote;
 } *StateData;
 
 typedef struct {
@@ -18,11 +18,20 @@ typedef struct {
 } *judgeData;
 
 typedef struct {
-    Map  state;
+    Map state;
     Map judge;
 }*Eurovision;
 
+Map State = mapCreate(copyStateDataElement, copyStateKeyElement, freeStateDataElement, freeStateKeyElement, compareStateKeyElements);
+Map Judge = mapCreate(copyDataElement, copyKeyElement, freeDataElement, freeKeyElement, compareKeyElements);
 
+StateData copyStateDataElement(StateData DataToCopy){
+    StateData = malloc(sizeof(StateData));
+    if (StateData == NULL){
+        return MAP_OUT_OF_MEMORY;
+    }
+    StateData ->
+}
 
 Eurovision eurovisionCreate(Eurovision eurovision){
     mapCreate(copyMapDataElements copyDataElement,
@@ -33,10 +42,6 @@ Eurovision eurovisionCreate(Eurovision eurovision){
 }
 
 
-
-
-
-Eurovision eurovisionCreate();
 void eurovisionDestroy(Eurovision urovision);
 EurovisionResult eurovisionAddState (Eurovision urovision, int stateId const char* stateName, const char* songName);
 EurovisionResult eurovisionAddJudge(Eurovision urovision, int judgeId, const char* judgeName, int *judgeResults);
