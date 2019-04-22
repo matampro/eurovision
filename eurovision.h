@@ -35,7 +35,6 @@ typedef enum eurovisionResult_t {
 } EurovisionResult;
 
 
-typedef struct eurovision_t *Eurovision;
 
 Eurovision eurovisionCreate();
 
