@@ -7,9 +7,10 @@
 
 
 typedef struct {
-    char* stateName;
-    char* songName;
+    char *stateName;
+    char *songName;
     Map CitizenVote* next;
+}*stateName;
 
 typedef struct {
     char* judgeName;
@@ -25,20 +26,35 @@ typedef struct {
 Map State = mapCreate(copyStateDataElement, copyStateKeyElement, freeStateDataElement, freeStateKeyElement, compareStateKeyElements);
 Map Judge = mapCreate(copyDataElement, copyKeyElement, freeDataElement, freeKeyElement, compareKeyElements);
 
-char* strCopy(char* str){
+char* strCopy(char* str) {
     int strLen = strlen(str);
-    char* strCopy = malloc(sizeof(strLen+1));
-    if(stateName == NULL){
+    char *strCopy = malloc(sizeof(strLen + 1));
+    if (strCopy == NULL) {
         return NULL;
-    }else{
-        stateDataNew->stateName = stateCopyName;
+    } else {
+        return strCopy = strcpy(strCopy, str);
+    }
 }
+
 
 stateData copyStateData(StateData dataToCopy){
     stateData stateDataNew = malloc(sizeof(*stateDataNew));
     if(stateDataNew == NULL){
         return NULL;
     } else{
+        if(strCopy(dataToCopy->stateName) == NULL){
+            return NULL;
+        }else{
+            stateDataNew->stateName = strCopy(dataToCopy->stateName);
+        }
+        if(strCopy(dataToCopy->stateName) == NULL){
+            return NULL;
+        }else{
+            stateDataNew->stateName = strCopy(dataToCopy->stateName);
+        }
+
+
+    }
         int strLen = strlen(dataToCopy->stateName);
         char* stateCopyName = malloc(sizeof(strLen+1));
         if(stateName == NULL){
