@@ -3,24 +3,37 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <assert.h>
-#include "E:\Documents\studies\mtm\hw-1\map.h"
+#include "map.h"
 
-typedef state_t {
-    int serial_number;
-    char* state_name;
-    char* song_name;
-    long long int count;
-} *State;
 
-typedef struct judge_t{
-    int serial_number;
-    char* judge_name;
-    List;
-} *Judge;
+typedef struct {
+    char* stateName;
+    char* songName;
+    struct CitizenVote* next;
+} *StateData;
 
-struct eurovision_t {
+typedef struct {
+    char* judgeName;
+    int* judgeResults;
+} *judgeData;
 
-};
+typedef struct {
+    Map  state;
+    Map judge;
+}*Eurovision;
+
+
+
+Eurovision eurovisionCreate(Eurovision eurovision){
+    mapCreate(copyMapDataElements copyDataElement,
+            copyMapKeyElements copyKeyElement,
+            freeMapDataElements freeDataElement,
+            freeMapKeyElements freeKeyElement,
+            compareMapKeyElements compareKeyElements)
+}
+
+
+
 
 
 Eurovision eurovisionCreate();
@@ -32,12 +45,6 @@ EurovisionResult eurovisionRemoveJudge(Eurovision eurovision, int judgeId);
 EurovisionResult eurovisionAddVote (Eurovision eurovision, int stateGiver, int stateTaker);
 EurovisionResult eurovisionRemoveVote (Eurovision eurovision, int stateGiver, int stateTaker);
 List eurovisionRunContest (Eurovision eurovision, int audiencePercent);
-
-
-
-struct Eurovition_t{
-
-};
 
 
 
