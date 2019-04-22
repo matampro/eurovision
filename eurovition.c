@@ -22,11 +22,6 @@ typedef struct {
     Map judge;
 }*Eurovision;
 
-
-Map State = mapCreate(copyStateDataElement, copyKeyElement, freeStateDataElement, freeKeyElement, compareKeyElements);
-Map Vote =  mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeVoteKeyElement, compareKeyElements);
-Map Judge = mapCreate(copyJudgeDataElement, copyKeyElement, freeJudgeDataElement, freeKeyElement, compareKeyElements);
-
 char* stringCopy(char* str) {
     int strLen = strlen(str);
     char *strDest = malloc(sizeof(strLen + 1));
@@ -44,11 +39,11 @@ stateData copyStateData(StateData dataToCopy){
         return NULL;
     } else{
         if(stringCopy(dataToCopy->stateName) == NULL){
-            return NULL;
+            return NULL;  // need to be fixed. can be NULL later
         }else{
             stateDataNew->stateName = stringCopy(dataToCopy->stateName);
         }
-        if(stringCopy(dataToCopy->songName) == NULL){
+        if(stringCopy(dataToCopy->songName) == NULL){    // need to be fixed. can be NULL later
             free(dataToCopy->stateName)
             return NULL;
         }else {
@@ -57,8 +52,6 @@ stateData copyStateData(StateData dataToCopy){
         Map citizenVote = mapCopy(dataToCopy->citizenVote);
         if
     }
-
-
 }
 
 int copyVoteDataElement(int Vote){
@@ -90,18 +83,18 @@ int CompareKeyElements(int KeyElement1,int KeyElement2){
 }
 
 JudgeData copyJudgeDataElement(JudgeData judgeDataToCopy){
-    JudgeData NewJudgeData = malloc(sizeof(JudgeData));
+    JudgeData NewJudgeData = malloc(sizeof(*NewJudgeData));
     if (NewJudgeData == NULL)
         return MAP_OUT_OF_MEMORY;
     }
     char* Name = stringCopy(judgeDataToCopy->judgeName);
     if (Name == NULL){
-        return MEMORY_ERROR;
+        return  MAP_OUT_OF_MEMORY;
     }
     NewJudgeData->judgeName = Name;
     NewJudgeData->judgeResults = malloc(sizeof(NUMBER_OF_RESULTS));
     if (New){
-        return MAP_MEMORY_P
+        return  MAP_OUT_OF_MEMORY
     }
     for(i = 0; i < NUMBER_OF_RESULTS; i++){
         NewJudgeData->judgeResults[i] = judgeDataToCopy->judgeResults[i];
@@ -125,8 +118,10 @@ Eurovision eurovisionCreate(){
 void eurovisionDestroy(Eurovision eurovision);
 
 EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId,
-                                    const char *stateName,
-                                    const char *songName);
+                                    const char *stateName, const char *songName){
+    eurovision->state->key_element
+
+}
 
 EurovisionResult eurovisionRemoveState(Eurovision eurovision, int stateId);
 
