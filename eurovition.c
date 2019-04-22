@@ -14,7 +14,7 @@ typedef struct {
 typedef struct {
     char* judgeName;
     int* judgeResults;
-} *judgeData;
+} *JudgeData;
 
 typedef struct {
     Map state;
@@ -22,9 +22,9 @@ typedef struct {
 }*Eurovision;
 
 
-Map State = mapCreate(copyStateDataElement, copyStateKeyElement, freeStateDataElement, freeStateKeyElement, compareStateKeyElements);
-Map Vote =  mapCreate(copyVoteDataElement, copyVoteKeyElement, freeVoteDataElement, freeVoteKeyElement, compareVoteKeyElements);
-Map Judge = mapCreate(copyJudgeDataElement, copyJudgeKeyElement, freeJudgeDataElement, freeJudgeKeyElement, compareJudgeKeyElements);
+Map State = mapCreate(copyStateDataElement, copyKeyElement, freeStateDataElement, freeKeyElement, compareKeyElements);
+Map Vote =  mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeVoteKeyElement, compareKeyElements);
+Map Judge = mapCreate(copyJudgeDataElement, copyKeyElement, freeJudgeDataElement, freeKeyElement, compareKeyElements);
 
 stateData copyStateData(StateData dataToCopy){
     stateData stateDataNew = malloc(sizeof(*stateDataNew));
@@ -51,19 +51,19 @@ int copyVoteDataElement(int Vote){
     return Vote;
 }
 
-int CopyVoteKeyElement (int VoteKeyElement){
+int CopyKeyElement (int KeyElement){
     return VoteKeyElement;
 }
 
-void freeVoteDataElement(VoteKeyElement voteDataElement){
+void freeVoteDataElement(int voteDataElement){
     return;
 }
 
-void freeVoteKeyElement(VoteKeyElement voteKeyElement){
+void freeKeyElement(int KeyElement){
     return;
 }
 
-int compareVoteKeyElements(VoteKeyElement KeyElement1,VoteKeyElement KeyElement2){
+int compareVoteKeyElements(int KeyElement1,int KeyElement2){
     if (KeyElement1 > KeyElement2){
         return 1;
     }
@@ -75,34 +75,46 @@ int compareVoteKeyElements(VoteKeyElement KeyElement1,VoteKeyElement KeyElement2
     }
 }
 
+JudgeData copyJudgeDataElement(JudgeData judgeDataToCopy){
+    JudgeData NewJudgeData = malloc(sizeof(JudgeData));
+    if (NewJudgeData == NULL){}
+        return MAP_OUT_OF_MEMORY;
+    }
+    
+    NewJudgeData->judgeName = judgeDataToCopy->judgeName;
+    NewJudgeData->judgeResults = judgeDataToCopy->judgeResults;
+    return NewJudgeData;
 
 
+void freeJudgeDataElement(){
 
-
-
-
-Eurovision eurovisionCreate(Eurovision eurovision){
-    Map mapState = mapCreate(copyMapDataElements copyDataElement,
-                              copyMapKeyElements copyKeyElement,
-                                freeMapDataElements freeDataElement,
-                                 freeMapKeyElements freeKeyElement,
-                                  compareMapKeyElements compareKeyElements)
 }
 
 
-void eurovisionDestroy(Eurovision urovision);
-EurovisionResult eurovisionAddState (Eurovision urovision, int stateId const char* stateName, const char* songName);
-EurovisionResult eurovisionAddJudge(Eurovision urovision, int judgeId, const char* judgeName, int *judgeResults);
-EurovisionResult eurovisionRemoveState (Eurovision urovision, int stateId);
+Eurovision eurovisionCreate();
+
+void eurovisionDestroy(Eurovision eurovision);
+
+EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId,
+                                    const char *stateName,
+                                    const char *songName);
+
+EurovisionResult eurovisionRemoveState(Eurovision eurovision, int stateId);
+
+EurovisionResult eurovisionAddJudge(Eurovision eurovision, int judgeId,
+                                    const char *judgeName,
+                                    int *judgeResults);
+
 EurovisionResult eurovisionRemoveJudge(Eurovision eurovision, int judgeId);
-EurovisionResult eurovisionAddVote (Eurovision eurovision, int stateGiver, int stateTaker);
-EurovisionResult eurovisionRemoveVote (Eurovision eurovision, int stateGiver, int stateTaker);
-List eurovisionRunContest (Eurovision eurovision, int audiencePercent);
 
+EurovisionResult eurovisionAddVote(Eurovision eurovision, int stateGiver,
+                                   int stateTaker);
 
+EurovisionResult eurovisionRemoveVote(Eurovision eurovision, int stateGiver,
+                                      int stateTaker);
 
+List eurovisionRunContest(Eurovision eurovision, int audiencePercent);
 
-int main() {
-    eurovisionRunContest(,)
-    return 0;
-}
+List eurovisionRunAudienceFavorite(Eurovision eurovision);
+
+List eurovisionRunGetFriendlyStates(Eurovision eurovision);
