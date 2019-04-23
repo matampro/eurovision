@@ -33,70 +33,71 @@ char* stringCopy(char* str) {
     return strDest;
 }
 
-stateData copyStateData(StateData dataToCopy){
+stateData copyStateData(StateData dataToCopy) {
     stateData stateDataNew = malloc(sizeof(*stateDataNew));
-    if(stateDataNew == NULL){
+    if (stateDataNew == NULL) {
         return NULL;
-    } else{
-        if(stringCopy(dataToCopy->stateName) == NULL){
+    } else {
+        if (stringCopy(dataToCopy->stateName) == NULL) {
             return NULL;  // need to be fixed. can be NULL later
-        }else{
+        } else {
             stateDataNew->stateName = stringCopy(dataToCopy->stateName);
         }
-        if(stringCopy(dataToCopy->songName) == NULL){    // need to be fixed. can be NULL later
-        stateDataNew->stateName = stringCopy(dataToCopy->stateName);
-        if(stateDataNew->stateName == NULL) {
-            return NULL;
+        if (stringCopy(dataToCopy->songName) == NULL) {    // need to be fixed. can be NULL later
+            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
+            if (stateDataNew->stateName == NULL) {
+                return NULL;
+            }
+            stateDataNew->songName = stringCopy(dataToCopy->songName);
+            if (stateDataNew->songName == NULL) {
+                free(dataToCopy->stateName)
+                return NULL;
+            }
+            Map citizenVoteDest = mapCopy(dataToCopy->citizenVote);
+            if (citizenVoteDest == NULL) {
+                free(dataToCopy->stateName);
+                free(dataToCopy->songName);
+                return NULL;
+            }
+            dataToCopy->citizenVote = citizenVoteDest;
         }
-        stateDataNew->songName = stringCopy(dataToCopy->songName);
-        if(stateDataNew->songName == NULL){
-            free(dataToCopy->stateName)
-            return NULL;
+        return stateDataNew;
+    }
+
+    int copyVoteDataElement(int Vote) {
+        return Vote;
+    }
+
+    int CopyKeyElement(int KeyElement) {
+        return VoteKeyElement;
+    }
+
+    void freeVoteDataElement(int voteDataElement) {
+        return;
+    }
+
+    void freeKeyElement(int KeyElement) {
+        return;
+    }
+
+    int CompareKeyElements(int KeyElement1, int KeyElement2) {
+        if (KeyElement1 > KeyElement2) {
+            return 1;
+        } else if (KeyElement1 == KeyElement2) {
+            return 0;
+        } else { //the second is bigger
+            return -1;
         }
-        Map citizenVoteDest = mapCopy(dataToCopy->citizenVote);
-        if(citizenVoteDest == NULL){
-            free(dataToCopy->stateName);
-            free(dataToCopy->songName);
-            return NULL;
+    }
+
+    JudgeData copyJudgeDataElement(JudgeData judgeDataToCopy) {
+        JudgeData NewJudgeData = malloc(sizeof(*NewJudgeData));
+        if (NewJudgeData == NULL) {
+            return MAP_OUT_OF_MEMORY;
         }
-        dataToCopy->citizenVote = citizenVoteDest;
     }
-    return stateDataNew;
-}
 
-int copyVoteDataElement(int Vote){
-    return Vote;
 }
-
-int CopyKeyElement (int KeyElement){
-    return VoteKeyElement;
-}
-
-void freeVoteDataElement(int voteDataElement){
-    return;
-}
-
-void freeKeyElement(int KeyElement){
-    return;
-}
-
-int CompareKeyElements(int KeyElement1,int KeyElement2){
-    if (KeyElement1 > KeyElement2){
-        return 1;
-    }
-    else if (KeyElement1 == KeyElement2){
-        return 0;
-    }
-    else{ //the second is bigger
-        return -1;
-    }
-}
-
-JudgeData copyJudgeDataElement(JudgeData judgeDataToCopy){
-    JudgeData NewJudgeData = malloc(sizeof(*NewJudgeData));
-    if (NewJudgeData == NULL)
-        return MAP_OUT_OF_MEMORY;
-    }
     char* Name = stringCopy(judgeDataToCopy->judgeName);
     if (Name == NULL){
         return  MAP_OUT_OF_MEMORY;
@@ -129,7 +130,8 @@ void eurovisionDestroy(Eurovision eurovision);
 
 EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId,
                                     const char *stateName, const char *songName){
-    eurovision->state->key_element
+    eurovision->state->key_element =
+
 
 }
 
