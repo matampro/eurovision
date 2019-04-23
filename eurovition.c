@@ -46,10 +46,10 @@ static StateDataMap copyStateData(StateDataMap dataToCopy){
 }
 /** Function to be used by the map for freeing elements */
 static void freeStateData(StateDataMap dataToFree) {
-    StateData X= (StateData) dataToFree;
-    free(X->stateName);                                   /////(*)?
-    free(X->songName);
-   mapDestroy(X->citizenVote);
+    StateData toFree= (StateData) dataToFree;
+    free(toFree->stateName);                                   /////(*)?
+    free(toFree->songName);
+    mapDestroy(toFree->citizenVote);
 }
 
 
@@ -85,8 +85,12 @@ int compareKeyElements(KeyElement key1,KeyElement key2){
     if (a > b){
         return 1;
     }
-    else if (a == b){
+    else if (a == b) {
         return 0;
+    }
+    else {
+        return -1;
+    }
 /*
 stateData copyStateData(StateData dataToCopy) {
     stateData stateDataNew = malloc(sizeof(*stateDataNew));

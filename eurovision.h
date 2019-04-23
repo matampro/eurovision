@@ -25,7 +25,6 @@ typedef struct {
     char *stateName;
     char *songName;
     Map citizenVote  ;
-
 }*StateData;
 
 typedef struct {
