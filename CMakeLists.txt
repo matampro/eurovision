@@ -3,4 +3,4 @@ project(eurovition C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(eurovition eurovition.c eurovition.h map.h list.h set.h)
+add_executable(eurovition eurovition.c map.c )
