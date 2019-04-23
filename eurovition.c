@@ -7,8 +7,6 @@
 
 #define NUMBER_OF_RESULTS 10
 
-
-
 char* stringCopy(char* str) {
     int strLen =(int) strlen(str);
     char *strDest = malloc(sizeof(strLen + 1));
@@ -73,7 +71,7 @@ static KeyElement copyKeyElement(KeyElement keyToCopy){
     return ptr;
 }
 
-static void freeVoteDataElement(VoteDataElement voteToFree){
+void freeVoteDataElement(VoteDataElement voteToFree){
     free(voteToFree);
 }
 
@@ -89,12 +87,66 @@ int compareKeyElements(KeyElement key1,KeyElement key2){
     }
     else if (a == b){
         return 0;
+/*
+stateData copyStateData(StateData dataToCopy) {
+    stateData stateDataNew = malloc(sizeof(*stateDataNew));
+    if (stateDataNew == NULL) {
+        return NULL;
+    } else {
+        if (stringCopy(dataToCopy->stateName) == NULL) {
+            return NULL;  // need to be fixed. can be NULL later
+        } else {
+            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
+        }
+        if (stringCopy(dataToCopy->songName) == NULL) {    // need to be fixed. can be NULL later
+            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
+            if (stateDataNew->stateName == NULL) {
+                return NULL;
+            }
+            stateDataNew->songName = stringCopy(dataToCopy->songName);
+            if (stateDataNew->songName == NULL) {
+                free(dataToCopy->stateName)
+                return NULL;
+            }
+            Map citizenVoteDest = mapCopy(dataToCopy->citizenVote);
+            if (citizenVoteDest == NULL) {
+                free(dataToCopy->stateName);
+                free(dataToCopy->songName);
+                return NULL;
+            }
+            dataToCopy->citizenVote = citizenVoteDest;
+        }
+        return stateDataNew;
     }
-    else{ //the second is bigger
-        return -1;
-    }
-}
 
+    int copyVoteDataElement(int Vote) {
+        return Vote;
+    }
+
+    int CopyKeyElement(int KeyElement) {
+        return VoteKeyElement;
+    }
+
+    void freeVoteDataElement(int voteDataElement) {
+        return;
+    }
+
+    void freeKeyElement(int KeyElement) {
+        return;
+
+    }
+
+    int CompareKeyElements(int KeyElement1, int KeyElement2) {
+        if (KeyElement1 > KeyElement2) {
+            return 1;
+        } else if (KeyElement1 == KeyElement2) {
+            return 0;
+        } else { //the second is bigger
+            return -1;
+        }
+    }
+
+*/
 //JudgeData copyJudgeDataElement(JudgeData judgeDataToCopy) {
 //    JudgeData NewJudgeData = malloc(sizeof(JudgeData));
 //    if (NewJudgeData == NULL)
@@ -115,11 +167,35 @@ int compareKeyElements(KeyElement key1,KeyElement key2){
 //    return NewJudgeData;
 //}
 
+//    JudgeData copyJudgeDataElement(JudgeData judgeDataToCopy) {
+  //      JudgeData NewJudgeData = malloc(sizeof(*NewJudgeData));
+//        if (NewJudgeData == NULL) {
+//            return MAP_OUT_OF_MEMORY;
+//        }
+///    }
+
+/*}
+    char* Name = stringCopy(judgeDataToCopy->judgeName);
+    if (Name == NULL){
+        return  MAP_OUT_OF_MEMORY;
+    }
+    NewJudgeData->judgeName = Name;
+    NewJudgeData->judgeResults = malloc(sizeof(NUMBER_OF_RESULTS));
+    if (New){
+        return  MAP_OUT_OF_MEMORY
+    }
+    for(i = 0; i < NUMBER_OF_RESULTS; i++){
+        NewJudgeData->judgeResults[i] = judgeDataToCopy->judgeResults[i];
+    }
+    return NewJudgeData;
+
+
+
 void freeJudgeDataElement(JudgeData judgeDataToDelete){
     free(judgeDataToDelete->judgeName);
     free(judgeDataToDelete->judgeResults);
 }
-
+*/
 Eurovision eurovisionCreate(){
     Eurovision eurovision = malloc(sizeof(*eurovision));
     if(eurovision == NULL){
@@ -152,6 +228,7 @@ int main()
 }
 
 EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId,
+
                                     const char *stateName,
                                     const char *songName)
 {
