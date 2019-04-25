@@ -11,12 +11,12 @@ char* stringCopy(const char* str) {
     if(str == NULL){
         return NULL;
     }
-    int strLen =(int) strlen(str);
+    int strLen =(int) strlen(str);     // why do we need the "(int)"? the strlen gives us the size, doesnt it?
     char *strDest = malloc(sizeof(strLen + 1));
     if (strDest == NULL) {
         return NULL;
     } else {
-        strcpy(strDest, str);
+        strcpy(strDest, str); 
     }
     return strDest;
 }
@@ -52,7 +52,7 @@ static StateDataMap copyStateData(StateDataMap dataToCopy){
 }
 /** Function to be used by the map for freeing elements */
 static void freeStateData(StateDataMap dataToFree) {
-    StateData toFree= (StateData) dataToFree;
+    StateData toFree = (StateData) dataToFree;
     free(toFree->stateName);
     free(toFree->songName);
     mapDestroy(toFree->citizenVote);
@@ -104,7 +104,7 @@ int compareKeyElements(KeyElement key1,KeyElement key2){
         return -1;
     }
 
-stateData copyStateData(StateData dataToCopy) {
+StateData copyStateData(StateData dataToCopy) {
     stateData stateDataNew = malloc(sizeof(*stateDataNew));
     if (stateDataNew == NULL) {
         return NULL;
@@ -207,9 +207,9 @@ void eurovisionDestroy(Eurovision eurovision){
 }
 int main()
 {
-    Eurovision h= eurovisionCreate();
-
+    Eurovision eurovision= eurovisionCreate();
 }
+
 bool checkIfNotNegitive(int num){
     if(num < 0) {
         return false;
@@ -229,6 +229,7 @@ bool checkIfNameIsLegal(const char *name){
     free(copyName);
     return true;
 }
+
 EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId, const char *stateName, const char *songName)
 {
     if(!checkIfNotNegitive(stateId)){
@@ -404,9 +405,4 @@ EurovisionResult eurovisionRemoveVote(Eurovision eurovision, int stateGiver, int
     }
 }
 
-List eurovisionRunContest(Eurovision eurovision, int audiencePercent);
-
-List eurovisionRunAudienceFavorite(Eurovision eurovision);
-
-List eurovisionRunGetFriendlyStates(Eurovision eurovision) {
-}
+List eurovisionRunContest(Eurovision eurovision, int a
