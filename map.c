@@ -7,7 +7,7 @@ typedef struct node_t{
     MapDataElement mapDataElement;
     MapKeyElement mapKeyElement;
     struct node_t* next;
-} *Node;
+}*Node;
 
 struct Map_t{
         int counter;
@@ -20,11 +20,13 @@ struct Map_t{
         freeMapKeyElements free_key;
 };
 
-Map mapCreate(copyMapDataElements copyDataElement,
-              copyMapKeyElements copyKeyElement,
-              freeMapDataElements freeDataElement,
-              freeMapKeyElements freeKeyElement,
-              compareMapKeyElements compareKeyElements) {
+Map mapCreate(copyMapDataElements copyDataElement,copyMapKeyElements copyKeyElement,
+                freeMapDataElements freeDataElement,freeMapKeyElements freeKeyElement,
+                compareMapKeyElements compareKeyElements){
+    if((copyDataElement == NULL) || (copyKeyElement == NULL)|| (freeDataElement == NULL) || (freeKeyElement== NULL)
+                                                                                   || (compareKeyElements == NULL)){
+        return NULL;
+    }
     Map map = malloc(sizeof(*map));
     if (map == NULL){
         return NULL;
@@ -57,12 +59,13 @@ void mapDestroy(Map map) {
             map->free_key(map->head->mapKeyElement);
         free(map->head);
     }
-
-
     free(map);
 }
 
 Map mapCopy(Map map){
+    if(map == NULL){
+        return NULL;
+    }
     Map new_map = malloc(sizeof(*map));
     if (new_map == NULL){
         return NULL;
@@ -99,10 +102,16 @@ Map mapCopy(Map map){
 }
 
 int mapGetSize(Map map){
+    if(map == NULL){
+        return NULL;
+    }
     return map->counter;
 }
 
 bool mapContains(Map map, MapKeyElement element){
+    if((map == NULL) || (element == NULL)){
+        return false;
+    }
     while (map->tail->next != NULL){
         if (map->tail->mapKeyElement == element){
             return true;
@@ -119,6 +128,9 @@ bool mapContains(Map map, MapKeyElement element){
 
 
 MapResult createNewNode(Node *new_node,MapKeyElement keyElement, MapDataElement dataElement,Map map){
+    if((new_node == NULL) || (keyElement == NULL) || (dataElement == NULL) ||  (map == NULL)){
+        return MAP_OUT_OF_MEMORY;
+    }
     *new_node = malloc(sizeof(struct node_t));
     if (*new_node == NULL) {
         return MAP_OUT_OF_MEMORY;
@@ -135,6 +147,9 @@ void addNewNodeAfterNode(Node new_node ,Node previousNode) {
     new_node->next =  temp;
 }
 MapResult mapPut(Map map, MapKeyElement keyElement, MapDataElement dataElement) {
+    if((map == NULL) || (keyElement == NULL)|| (dataElement == NULL)){
+        return MAP_OUT_OF_MEMORY;
+    }
     Node new_node=NULL;
     if(map->head == NULL){                    //first node in the list
         if (createNewNode(&new_node, keyElement, dataElement,map) == MAP_OUT_OF_MEMORY) {
@@ -178,6 +193,9 @@ MapResult mapPut(Map map, MapKeyElement keyElement, MapDataElement dataElement) 
 }
 
 MapDataElement mapGet(Map map, MapKeyElement keyElement){
+    if((map == NULL) || (keyElement == NULL)){
+        return NULL;
+    }
     for (map->tail = map->head; map->tail != NULL ; map->tail = map->tail->next) {
         if (map->compair_key(map->tail->mapKeyElement, keyElement) == 0){
             return map->tail->mapDataElement;
@@ -187,6 +205,9 @@ MapDataElement mapGet(Map map, MapKeyElement keyElement){
 }
 
 MapResult mapRemove(Map map, MapKeyElement keyElement) {
+    if((map == NULL) || (keyElement == NULL)){
+        return MAP_NULL_ARGUMENT;
+    }
     int flag = 0; // We check if the item is found//
     for (map->tail = map->head; map->tail->next != NULL ; map->tail = map->tail->next) {
         if (map->compair_key(map->tail->next->mapKeyElement, keyElement) == 0) {
@@ -199,10 +220,17 @@ MapResult mapRemove(Map map, MapKeyElement keyElement) {
             map->counter--;
         }
     }
-    return MAP_ITEM_DOES_NOT_EXIST;
+    if(flag == 1){
+        return MAP_SUCCESS;   //  how can we know that it went well?
+    }else{
+        return MAP_ITEM_DOES_NOT_EXIST;
+    }
 }
 
 MapKeyElement mapGetFirst(Map map) {
+    if(map == NULL){
+        return NULL;
+    }
     if (map->head == NULL){
         return NULL;
     }
@@ -211,6 +239,9 @@ MapKeyElement mapGetFirst(Map map) {
 }
 
 MapKeyElement mapGetNext(Map map){
+    if(map == NULL){
+        return NULL;
+    }
     map->tail = map->tail->next;
     if(map->tail !=NULL)
         return map->tail->mapKeyElement;
@@ -219,6 +250,9 @@ MapKeyElement mapGetNext(Map map){
 }
 
 MapResult mapClear(Map map){
+    if(map == NULL){
+        return MAP_NULL_ARGUMENT;
+    }
     while(map->head != NULL)
     {
         Node tmp = map->head;

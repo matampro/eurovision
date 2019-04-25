@@ -24,8 +24,7 @@
 typedef struct {
     char *stateName;
     char *songName;
-    Map citizenVote  ;
-
+    Map citizenVote;
 }*StateData;
 
 typedef struct {
@@ -41,7 +40,7 @@ typedef struct {
 
 typedef void *StateDataMap;
 
-//int voteData =0;
+typedef void *JudgeDataMap;
 
 typedef void *KeyElement;
 
@@ -60,12 +59,10 @@ typedef enum eurovisionResult_t {
     EUROVISION_SUCCESS
 } EurovisionResult;
 
-
-
 Eurovision eurovisionCreate();
 
 void eurovisionDestroy(Eurovision eurovision);
-
+static JudgeDataMap freeJudgeDataElement(JudgeDataMap judgeDataToFree);
 EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId,
                                     const char *stateName,
                                     const char *songName);
