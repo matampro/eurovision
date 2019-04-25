@@ -104,6 +104,7 @@ int compareKeyElements(KeyElement key1,KeyElement key2){
         return -1;
     }
 
+<<<<<<< HEAD
 StateData copyStateData(StateData dataToCopy) {
     stateData stateDataNew = malloc(sizeof(*stateDataNew));
     if (stateDataNew == NULL) {
@@ -148,6 +149,8 @@ StateData copyStateData(StateData dataToCopy) {
     }
 }
 
+=======
+>>>>>>> 500b50b93102fea1ff17335fddb8ac178e96a765
 static  JudgeDataMap copyJudgeDataElement(JudgeDataMap judgeDataToCopy) {
     if(judgeDataToCopy == NULL){
         return NULL;
