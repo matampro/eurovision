@@ -52,10 +52,10 @@ static StateDataMap copyStateData(StateDataMap dataToCopy){
 }
 /** Function to be used by the map for freeing elements */
 static void freeStateData(StateDataMap dataToFree) {
-    StateData ptr = (StateData) dataToFree;
-    free(ptr->stateName);
-    free(ptr->songName);
-   mapDestroy(ptr->citizenVote);
+    StateData toFree= (StateData) dataToFree;
+    free(toFree->stateName);
+    free(toFree->songName);
+    mapDestroy(toFree->citizenVote);
 }
 
 
@@ -97,10 +97,54 @@ int compareKeyElements(KeyElement key1,KeyElement key2){
     if (a > b){
         return 1;
     }
-    else if (a == b){
+    else if (a == b) {
         return 0;
+
     } else { //the second is bigger
         return -1;
+    }
+
+stateData copyStateData(StateData dataToCopy) {
+    stateData stateDataNew = malloc(sizeof(*stateDataNew));
+    if (stateDataNew == NULL) {
+        return NULL;
+    } else {
+        if (stringCopy(dataToCopy->stateName) == NULL) {
+            return NULL;  // need to be fixed. can be NULL later
+        } else {
+            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
+        }
+        if (stringCopy(dataToCopy->songName) == NULL) {    // need to be fixed. can be NULL later
+            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
+            if (stateDataNew->stateName == NULL) {
+                return NULL;
+            }
+            stateDataNew->songName = stringCopy(dataToCopy->songName);
+            if (stateDataNew->songName == NULL) {
+                free(dataToCopy->stateName)
+                return NULL;
+            }
+            Map citizenVoteDest = mapCopy(dataToCopy->citizenVote);
+            if (citizenVoteDest == NULL) {
+                free(dataToCopy->stateName);
+                free(dataToCopy->songName);
+                return NULL;
+            }
+            dataToCopy->citizenVote = citizenVoteDest;
+        }
+        return stateDataNew;
+    }
+
+    int copyVoteDataElement(int Vote) {
+        return Vote;
+    }
+
+    int CopyKeyElement(int KeyElement) {
+        return VoteKeyElement;
+    }
+
+    void freeVoteDataElement(int voteDataElement) {
+        return;
     }
 }
 
