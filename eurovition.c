@@ -11,12 +11,12 @@ char* stringCopy(const char* str) {
     if(str == NULL){
         return NULL;
     }
-    int strLen =(int) strlen(str);
+    int strLen =(int) strlen(str);     // why do we need the "(int)"? the strlen gives us the size, doesnt it?
     char *strDest = malloc(sizeof(strLen + 1));
     if (strDest == NULL) {
         return NULL;
     } else {
-        strcpy(strDest, str);
+        strcpy(strDest, str); 
     }
     return strDest;
 }
@@ -52,7 +52,7 @@ static StateDataMap copyStateData(StateDataMap dataToCopy){
 }
 /** Function to be used by the map for freeing elements */
 static void freeStateData(StateDataMap dataToFree) {
-    StateData toFree= (StateData) dataToFree;
+    StateData toFree = (StateData) dataToFree;
     free(toFree->stateName);
     free(toFree->songName);
     mapDestroy(toFree->citizenVote);
@@ -104,6 +104,53 @@ int compareKeyElements(KeyElement key1,KeyElement key2){
         return -1;
     }
 
+<<<<<<< HEAD
+StateData copyStateData(StateData dataToCopy) {
+    stateData stateDataNew = malloc(sizeof(*stateDataNew));
+    if (stateDataNew == NULL) {
+        return NULL;
+    } else {
+        if (stringCopy(dataToCopy->stateName) == NULL) {
+            return NULL;  // need to be fixed. can be NULL later
+        } else {
+            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
+        }
+        if (stringCopy(dataToCopy->songName) == NULL) {    // need to be fixed. can be NULL later
+            stateDataNew->stateName = stringCopy(dataToCopy->stateName);
+            if (stateDataNew->stateName == NULL) {
+                return NULL;
+            }
+            stateDataNew->songName = stringCopy(dataToCopy->songName);
+            if (stateDataNew->songName == NULL) {
+                free(dataToCopy->stateName)
+                return NULL;
+            }
+            Map citizenVoteDest = mapCopy(dataToCopy->citizenVote);
+            if (citizenVoteDest == NULL) {
+                free(dataToCopy->stateName);
+                free(dataToCopy->songName);
+                return NULL;
+            }
+            dataToCopy->citizenVote = citizenVoteDest;
+        }
+        return stateDataNew;
+    }
+
+    int copyVoteDataElement(int Vote) {
+        return Vote;
+    }
+
+    int CopyKeyElement(int KeyElement) {
+        return VoteKeyElement;
+    }
+
+    void freeVoteDataElement(int voteDataElement) {
+        return;
+    }
+}
+
+=======
+>>>>>>> 500b50b93102fea1ff17335fddb8ac178e96a765
 static  JudgeDataMap copyJudgeDataElement(JudgeDataMap judgeDataToCopy) {
     if(judgeDataToCopy == NULL){
         return NULL;
@@ -163,9 +210,9 @@ void eurovisionDestroy(Eurovision eurovision){
 }
 int main()
 {
-    Eurovision h= eurovisionCreate();
-
+    Eurovision eurovision= eurovisionCreate();
 }
+
 bool checkIfNotNegitive(int num){
     if(num < 0) {
         return false;
@@ -185,6 +232,7 @@ bool checkIfNameIsLegal(const char *name){
     free(copyName);
     return true;
 }
+
 EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId, const char *stateName, const char *songName)
 {
     if(!checkIfNotNegitive(stateId)){
@@ -360,9 +408,4 @@ EurovisionResult eurovisionRemoveVote(Eurovision eurovision, int stateGiver, int
     }
 }
 
-List eurovisionRunContest(Eurovision eurovision, int audiencePercent);
-
-List eurovisionRunAudienceFavorite(Eurovision eurovision);
-
-List eurovisionRunGetFriendlyStates(Eurovision eurovision) {
-}
+List eurovisionRunContest(Eurovision eurovision, int a
