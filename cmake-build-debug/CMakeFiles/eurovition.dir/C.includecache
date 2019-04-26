@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Ayala/Documents/GitHub/new/eurovision/eurovision.h
+list.h
+C:/Users/Ayala/Documents/GitHub/new/eurovision/list.h
+map.h
+C:/Users/Ayala/Documents/GitHub/new/eurovision/map.h
+
+C:/Users/Ayala/Documents/GitHub/new/eurovision/eurovition.c
+stdio.h
+-
+eurovision.h
+C:/Users/Ayala/Documents/GitHub/new/eurovision/eurovision.h
+stdlib.h
+-
+stdbool.h
+-
+assert.h
+-
+string.h
+-
+
+C:/Users/Ayala/Documents/GitHub/new/eurovision/list.h
+stdbool.h
+-
+
+C:/Users/Ayala/Documents/GitHub/new/eurovision/map.h
+stdbool.h
+-
+

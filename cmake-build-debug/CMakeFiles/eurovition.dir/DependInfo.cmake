@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/DONTO/Documents/studies/part 2/eurovision/eurovition.c" "C:/Users/DONTO/Documents/studies/part 2/eurovision/cmake-build-debug/CMakeFiles/eurovition.dir/eurovition.c.obj"
-  "C:/Users/DONTO/Documents/studies/part 2/eurovision/map.c" "C:/Users/DONTO/Documents/studies/part 2/eurovision/cmake-build-debug/CMakeFiles/eurovition.dir/map.c.obj"
+  "C:/Users/Ayala/Documents/GitHub/new/eurovision/eurovition.c" "C:/Users/Ayala/Documents/GitHub/new/eurovision/cmake-build-debug/CMakeFiles/eurovition.dir/eurovition.c.obj"
+  "C:/Users/Ayala/Documents/GitHub/new/eurovision/map.c" "C:/Users/Ayala/Documents/GitHub/new/eurovision/cmake-build-debug/CMakeFiles/eurovition.dir/map.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

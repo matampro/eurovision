@@ -43,6 +43,7 @@ typedef void *StateDataMap;
 typedef void *JudgeDataMap;
 
 typedef void *KeyElement;
+typedef void *VoteElement;
 
 typedef void *VoteDataElement;
 
@@ -62,7 +63,7 @@ typedef enum eurovisionResult_t {
 Eurovision eurovisionCreate();
 
 void eurovisionDestroy(Eurovision eurovision);
-static JudgeDataMap freeJudgeDataElement(JudgeDataMap judgeDataToFree);
+static void freeJudgeDataElement(JudgeDataMap judgeDataToFree);
 EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId,
                                     const char *stateName,
                                     const char *songName);
