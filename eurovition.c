@@ -108,7 +108,7 @@ static  JudgeDataMap copyJudgeDataElement(JudgeDataMap judgeDataToCopy) {
     if(judgeDataToCopy == NULL){
         return NULL;
     }
-    JudgeData data =(JudgeData) judgeDataToCopy;
+    JudgeData data =(JudgeData)judgeDataToCopy;
     JudgeData judgeDataNew = malloc(sizeof(*judgeDataNew));
     if(judgeDataNew == NULL){
         return NULL;
@@ -125,7 +125,7 @@ static  JudgeDataMap copyJudgeDataElement(JudgeDataMap judgeDataToCopy) {
             return NULL;
         }
         for (int i = 0; i < NUMBER_OF_RESULTS; i++) {
-            judgeDataNew->judgeResults[i] = judgeDataToCopy->judgeResults[i]; ///is it ok?
+            judgeDataNew->judgeResults[i] = data->judgeResults[i];
         }
         return judgeDataNew;
     }
@@ -281,9 +281,9 @@ EurovisionResult eurovisionAddJudge(Eurovision eurovision, int judgeId,const cha
         return EUROVISION_OUT_OF_MEMORY;
     }
     for (int i = 0; i < NUMBER_OF_RESULTS; i++) {
-        newJudgeData->judgeResults[i] = newJudgeData->judgeResults[i]; ///is it ok?
+        newJudgeData->judgeResults[i] = judgeResults[i];
     }
-    MapResult result = mapPut(eurovision->judge,&judgeId,&newJudgeData); ///&?
+    MapResult result = mapPut(eurovision->judge,&judgeId,&newJudgeData);
     if(result == MAP_OUT_OF_MEMORY) {
         freeJudgeDataElement(newJudgeData);
         free(newJudgeData);
