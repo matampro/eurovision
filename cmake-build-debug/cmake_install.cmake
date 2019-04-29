@@ -1,4 +1,4 @@
-# Install script for directory: E:/Documents/studies/technion/semester 4/CLion/eurovition
+# Install script for directory: C:/Users/Ayala/Documents/GitHub/new/eurovision
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "E:/Documents/studies/technion/semester 4/CLion/eurovition/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Ayala/Documents/GitHub/new/eurovision/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

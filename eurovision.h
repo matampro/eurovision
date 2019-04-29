@@ -2,11 +2,12 @@
 #define EUROVISION_H_
 
 #include "list.h"
+#include "map.h"
+
 /**
 * Eurovition management program
-*
 
-*
+**
 * The following functions are available:
 *   eurovisionCreate        - Creates a new empty Eurovition
 *   EurovitionDestroy       - Deletes an existing Eurovition and frees all resources
@@ -20,6 +21,31 @@
 *   eurovisionRunContest    - Runs the contest and returns the list of winners
 */
 
+typedef struct {
+    char *stateName;
+    char *songName;
+    Map citizenVote;
+}*StateData;
+
+typedef struct {
+    char* judgeName;
+    int* judgeResults;
+} *JudgeData;
+
+typedef struct {
+    Map state;
+    Map judge;
+}*Eurovision;
+
+
+typedef void *StateDataMap;
+
+typedef void *JudgeDataMap;
+
+typedef void *KeyElement;
+typedef void *VoteElement;
+
+typedef void *VoteDataElement;
 
 typedef enum eurovisionResult_t {
     EUROVISION_NULL_ARGUMENT,
@@ -34,13 +60,10 @@ typedef enum eurovisionResult_t {
     EUROVISION_SUCCESS
 } EurovisionResult;
 
-
-typedef struct eurovision_t *Eurovision;
-
 Eurovision eurovisionCreate();
 
 void eurovisionDestroy(Eurovision eurovision);
-
+static void freeJudgeDataElement(JudgeDataMap judgeDataToFree);
 EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId,
                                     const char *stateName,
                                     const char *songName);
