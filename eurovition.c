@@ -6,7 +6,7 @@
 #include <string.h>
 
 #define NUMBER_OF_RESULTS 10
-
+#define TOTAL_PRECENT 100
 char* stringCopy(const char* str) {
     if(str == NULL){
         return NULL;
@@ -193,7 +193,7 @@ EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId, const ch
     }else if( !checkIfNameIsLegal(stateName) || !checkIfNameIsLegal(songName)){
             return EUROVISION_INVALID_NAME;
     }else{
-        StateData  newStateData =  (StateData) malloc(sizeof(*newStateData));
+        StateData newStateData = (StateData) malloc(sizeof(*newStateData));
         if(newStateData == NULL){
             eurovisionDestroy(eurovision);
             return EUROVISION_OUT_OF_MEMORY;
@@ -212,7 +212,7 @@ EurovisionResult eurovisionAddState(Eurovision eurovision, int stateId, const ch
             eurovisionDestroy(eurovision);
             return EUROVISION_OUT_OF_MEMORY;
         }
-        void* result = mapCreate(copyVoteDataElement,copyKeyElement,freeVoteDataElement,freeKeyElement,
+        void* result = mapCreate(copyVoteDataElement,copyKeyElement,freeVoteDataElement,freeKeyElement,                  //where goes the pointer of mapCreate?
                                                                                             compareKeyElements);
         if(result == NULL) {
             freeStateData(newStateData);
@@ -372,10 +372,68 @@ EurovisionResult eurovisionRemoveVote(Eurovision eurovision, int stateGiver, int
     }
 }
 
-//List eurovisionRunContest(Eurovision eurovision, int a
+List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
+    if ((eurovision == NULL) || (audiencePrecent < 1) || (audiencePrecent > 100)) {
+        return NULL;
+    }
+    void *winners_map = mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeKeyElement,
+                                  compareKeyElements);
+    if (winners_map == NULL) {
+        return NULL;
+    }
+    MAP_FOREACH(int, iterator, eurovision->state) {      // iterator??
+        MapResult result = mapPut(winners_map, eurovision->state->stateData->keyElement,
+                                  eurovision->state->stateData->keyElement->stateName);
+        if (result == NULL) {
+            return NULL;
+        }
+    }
+    MAP_FOREACH(int, iterator, eurovision->state) {
+        MAP_FOREACH(int, iterator, eurovision->state->cityzenVote) {
+            MapResult result = mapPut(winners_map, eurovision->state->cityzenVote->keyDataElement, winners_map->data + (( eurovision->state->cityzenVote->votes ) * audiencePrecent) / TOTAL_PRECENT);
+            if (result == NULL){
+                return NULL;
+            }
+        }
+    }
+
+    MAP_FOREACH(int, iterator, Judge) {
+        MapResult result = mapPut(winners_map, Judge->keyElement,
+                                  (winners_map->data)  + (JudgeData *(TOTAL_PRECENT - audiencePrecent) / TOTAL_PRECENT);
+        if (result == NULL) {
+            return NULL;
+        }
+    }
+    List winners = listCreate(copyKeyElement, freeKeyElement);
+    if (winners == NULL) {
+        return NULL;
+    }
+    MAP_FOREACH(int, iterator, winners_map) {
+        ListResult result = listInsertFirst(winners, winners_map->keyElement);
+        if (result == NULL) {
+            return NULL;
+        }
+        ListResult result = listSort(winners, copyKeyElement());
+        if (result == NULL) {
+            return NULL;
+        }
+    }
+    char* next_winner = listGetFirst(winners);
+    printf(%s, &next_winner);
+    char* next_winner = listGetNext(winners);
+    printf(%s, &next_winner);
+}
+
+List eurovisionRunAudienceFavorite(Eurovision eurovision);
+
+List eurovisionRunGetFriendlyStates(Eurovision eurovision);
+
+
+
+
 /*only for us so we can build
 int main()
 {
-    Eurovision eurovision= eurovisionCreate();
+    Eurovision eurovision = eurovisionCreate();
 }
  */
