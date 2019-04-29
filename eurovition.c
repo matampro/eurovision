@@ -6,7 +6,10 @@
 #include <string.h>
 
 #define NUMBER_OF_RESULTS 10
+#define NUMBER_OF_WINNERS 10
 #define TOTAL_PRECENT 100
+int place[NUMBER_OF_WINNERS] = (12, 10, 8, 7, 6, 5, 4, 3, 2, 1);
+
 char* stringCopy(const char* str) {
     if(str == NULL){
         return NULL;
@@ -376,12 +379,59 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
     if ((eurovision == NULL) || (audiencePrecent < 1) || (audiencePrecent > 100)) {
         return NULL;
     }
+    int number_of_voted_states = NUMBER_OF_WINNERS;
     void *winners_map = mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeKeyElement,
-                                  compareKeyElements);
+                                  compareKeyElements);      // we count the score here
     if (winners_map == NULL) {
         return NULL;
     }
-    MAP_FOREACH(int, iterator, eurovision->state) {      // iterator??
+    MAP_FOREACH(int, iterator, eurovision->state) {          // for each state
+        ListResult current_list = listCreate(copyKeyElement, freeKeyElement);
+        if (current_list == NULL) {
+            return NULL;
+        }
+        MAP_FOREACH(int, iterator, eurovision->state->stateData->cityzenVote) {      // we make a list of all the state votes
+            ListResult result = listInsertFirst(current_list, eurovision->state->cityzenVote->keyElement);
+            if (result == NULL) {
+                return NULL;
+            }
+        }
+        ListResult result = listSort(current_list, compareData); //compair Data need to be writen;    // sort by the data with key element in the map citizenvote
+        if (result == NULL){
+            return NULL;
+        }
+        ListResult list_size = listGetSize(current_list);
+        if (list_size == NULL){   // maby its fine??
+            return NULL;
+        }
+        if (list_size < NUMBER_OF_WINNERS) number_of_voted_states = list_size;
+        for (int i = 0; i < number_of_voted_states; i++) {
+            mapPut(winners_map, current_list[i], winners_map->data + (place[i] * audiencePrecent /
+                                                                     TOTAL_PRECENT));  // ( int place[NUMBER_OF_WINNERS] = (12, 10, 8, 7, 6, 5, 4, 3, 2, 1) )
+        }
+    }
+    MAP_FOREACH(int, iterator, eurovision->judge){
+        for (int i = 0; i < NUMBER_OF_WINNERS; i++) {
+        mapPut(winners_map, map->keyElement, winners_map->data + place[i] * (TOTAL_PRECENT - audiencePrecent) / TOTAL_PRECENT); /
+                                                                  TOTAL_PRECENT));  // ( int place[NUMBER_OF_WINNERS] = (12, 10, 8, 7, 6, 5, 4, 3, 2, 1) )
+        }
+    }
+    MapResult result = makeListPrintResult(winners_map);
+    if (result == NULL){
+        return NULL;
+    }
+}
+/**
+List eurovisionRunAudienceFavorite(eurovision){
+    if (eurovision == NULL) {
+        return NULL;
+    }
+    void *favorit_winners_map = mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeKeyElement,
+                                  compareKeyElements);
+    if (favorit_winners_map == NULL) {
+        return NULL;
+    }
+    MAP_FOREACH(int, iterator, eurovision->state) {
         MapResult result = mapPut(winners_map, eurovision->state->stateData->keyElement,
                                   eurovision->state->stateData->keyElement->stateName);
         if (result == NULL) {
@@ -390,43 +440,47 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
     }
     MAP_FOREACH(int, iterator, eurovision->state) {
         MAP_FOREACH(int, iterator, eurovision->state->cityzenVote) {
-            MapResult result = mapPut(winners_map, eurovision->state->cityzenVote->keyDataElement, winners_map->data + (( eurovision->state->cityzenVote->votes ) * audiencePrecent) / TOTAL_PRECENT);
+            MapResult result = mapPut(winners_map, eurovision->state->cityzenVote->keyDataElement, winners_map->data + ( eurovision->state->cityzenVote->votes));
             if (result == NULL){
                 return NULL;
             }
         }
     }
-
-    MAP_FOREACH(int, iterator, Judge) {
-        MapResult result = mapPut(winners_map, Judge->keyElement,
-                                  (winners_map->data)  + (JudgeData *(TOTAL_PRECENT - audiencePrecent) / TOTAL_PRECENT);
-        if (result == NULL) {
-            return NULL;
-        }
+    MapResult result = makeListPrintResult(favorit_winners_map);
+    if (result == NULL){
+        return NULL;
     }
+}
+*/
+
+List makeListPrintResult (Map map){
     List winners = listCreate(copyKeyElement, freeKeyElement);
     if (winners == NULL) {
         return NULL;
     }
-    MAP_FOREACH(int, iterator, winners_map) {
-        ListResult result = listInsertFirst(winners, winners_map->keyElement);
+    MAP_FOREACH(int, iterator, map) {
+        ListResult result = listInsertFirst(winners, map->keyElement);
         if (result == NULL) {
             return NULL;
         }
-        ListResult result = listSort(winners, copyKeyElement());
+        ListResult result = listSort(winners, compareData);
         if (result == NULL) {
             return NULL;
         }
     }
+    while(winners != NULL){
     char* next_winner = listGetFirst(winners);
     printf(%s, &next_winner);
     char* next_winner = listGetNext(winners);
     printf(%s, &next_winner);
 }
 
-List eurovisionRunAudienceFavorite(Eurovision eurovision);
+    
 
-List eurovisionRunGetFriendlyStates(Eurovision eurovision);
+
+List eurovisionRunGetFriendlyStates(eurovision){
+
+}
 
 
 
