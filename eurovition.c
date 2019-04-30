@@ -507,7 +507,7 @@ List makeListPrintResult (Map map){
 
 
 List eurovisionRunGetFriendlyStates(eurovision){
-    
+
 }
 
 
