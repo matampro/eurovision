@@ -12,6 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d1e4f6f-4250-4cc8-b9d6-bccb4a028e20" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.2/CMakeCCompiler.cmake" beforeDir="false" />
@@ -45,6 +46,11 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/eurovition.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/eurovition.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eurovision.h" beforeDir="false" afterPath="$PROJECT_DIR$/eurovision.h" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/eurovition.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/eurovition.cbp" afterDir="false" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
       <change beforePath="$PROJECT_DIR$/eurovition.c" beforeDir="false" afterPath="$PROJECT_DIR$/eurovition.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -59,11 +65,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/eurovition.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4291">
+              <caret line="402" column="44" selection-start-line="402" selection-start-column="44" selection-end-line="402" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/list.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2329">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
             </state>
           </provider>
         </entry>
@@ -71,8 +94,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eurovision.h">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="362">
               <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="93" />
+=======
+            <state relative-caret-position="1071">
+              <caret line="63" selection-start-line="63" selection-end-line="63" selection-end-column="51" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
             </state>
           </provider>
         </entry>
@@ -80,8 +108,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/eurovition.c">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="246">
               <caret line="383" column="17" selection-start-line="383" selection-start-column="17" selection-end-line="383" selection-end-column="17" />
+=======
+            <state relative-caret-position="527">
+              <caret line="31" column="19" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
             </state>
           </provider>
         </entry>
@@ -89,8 +125,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/map.h">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="4029">
               <caret line="237" column="42" selection-start-line="237" selection-start-column="42" selection-end-line="237" selection-end-column="42" />
+=======
+            <state relative-caret-position="765">
+              <caret line="45" column="25" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="25" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
             </state>
           </provider>
         </entry>
@@ -98,8 +139,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/map.c">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="4063">
               <caret line="239" selection-start-line="239" selection-end-line="239" />
+=======
+            <state relative-caret-position="374">
+              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -199,24 +245,39 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1556264603898</updated>
+<<<<<<< HEAD
       <workItem from="1556264613774" duration="3452000" />
       <workItem from="1556461927582" duration="3255000" />
       <workItem from="1556513019289" duration="3883000" />
       <workItem from="1556516986008" duration="9651000" />
       <workItem from="1556621109518" duration="50000" />
       <workItem from="1556630986430" duration="300000" />
+=======
+      <workItem from="1556264613774" duration="3749000" />
+      <workItem from="1556303679622" duration="259000" />
+      <workItem from="1556603489152" duration="633000" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="20591000" />
+=======
+    <option name="totallyTimeSpent" value="4641000" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.39059305" visible="true" weight="0.14736842" />
       <window_info id="Structure" order="1" sideWeight="0.60940695" side_tool="true" weight="0.19676113" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.39115646" visible="true" weight="0.25718608" />
+      <window_info id="Structure" order="1" sideWeight="0.60884356" side_tool="true" visible="true" weight="0.25718608" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.08938547" />
@@ -244,22 +305,47 @@
     <entry file="file://$USER_HOME$/Desktop/mtm/hw/hw1/ex1-v3/tests/map_example_test.c" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="85">
           <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+=======
+        <state relative-caret-position="1071">
+          <caret line="63" selection-start-line="63" selection-end-line="63" selection-end-column="51" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/map.h">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="4029">
           <caret line="237" column="42" selection-start-line="237" selection-start-column="42" selection-end-line="237" selection-end-column="42" />
+=======
+        <state relative-caret-position="527">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eurovision.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/map.c">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="4063">
           <caret line="239" selection-start-line="239" selection-end-line="239" />
+=======
+        <state relative-caret-position="374">
+          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -267,6 +353,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/list.h">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4845">
           <caret line="285" column="36" selection-start-line="285" selection-start-column="36" selection-end-line="285" selection-end-column="36" />
@@ -277,13 +364,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
           <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="93" />
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2329">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eurovition.c">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="246">
           <caret line="383" column="17" selection-start-line="383" selection-start-column="17" selection-end-line="383" selection-end-column="17" />
+=======
+        <state relative-caret-position="4291">
+          <caret line="402" column="44" selection-start-line="402" selection-start-column="44" selection-end-line="402" selection-end-column="44" />
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
         </state>
       </provider>
     </entry>

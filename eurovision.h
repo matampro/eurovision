@@ -92,4 +92,4 @@ List eurovisionRunAudienceFavorite(Eurovision eurovision);
 List eurovisionRunGetFriendlyStates(Eurovision eurovision);
 
 
-#endif /* EUROVISION_H_ */
+#

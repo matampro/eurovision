@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
+<<<<<<< HEAD
   "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.13/Modules/CMakeCInformation.cmake"
   "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.13/Modules/CMakeCommonLanguageInclude.cmake"
   "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.13/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
@@ -31,6 +32,34 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.13.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.13.4/CMakeRCCompiler.cmake"
   "CMakeFiles/3.13.4/CMakeSystem.cmake"
+=======
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeCInformation.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeCommonLanguageInclude.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeFindCodeBlocks.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeGenericSystem.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeInitializeConfigs.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeLanguageInformation.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeRCInformation.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeSystemSpecificInformation.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/CMakeSystemSpecificInitialize.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Compiler/GNU-C.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Compiler/GNU.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Internal/CMakeCheckCompilerFlag.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Platform/Windows-GNU-C-ABI.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Platform/Windows-GNU-C.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Platform/Windows-GNU.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Platform/Windows-windres.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Platform/Windows.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/Platform/WindowsPaths.cmake"
+  "C:/Program Files/JetBrains/CLion 2018.3.4/bin/cmake/win/share/cmake-3.14/Modules/ProcessorCount.cmake"
+  "../CMakeLists.txt"
+  "CMakeFiles/3.14.2/CMakeCCompiler.cmake"
+  "CMakeFiles/3.14.2/CMakeRCCompiler.cmake"
+  "CMakeFiles/3.14.2/CMakeSystem.cmake"
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
   )
 
 # The corresponding makefile is:

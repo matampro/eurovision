@@ -74,10 +74,23 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+<<<<<<< HEAD
 		<Unit filename="C:/Users/DONTO/Documents/studies/part 2/eurovision/eurovision.h">
 			<Option target="eurovition"/>
 		</Unit>
 		<Unit filename="C:/Users/DONTO/Documents/studies/part 2/eurovision/eurovition.c">
+=======
+		<Unit filename="C:/Users/Ayala/Documents/GitHub/new/eurovision/eurovision.h">
+			<Option target="eurovition"/>
+		</Unit>
+		<Unit filename="C:/Users/Ayala/Documents/GitHub/new/eurovision/eurovition.c">
+			<Option target="eurovition"/>
+		</Unit>
+		<Unit filename="C:/Users/Ayala/Documents/GitHub/new/eurovision/list.h">
+			<Option target="eurovition"/>
+		</Unit>
+		<Unit filename="C:/Users/Ayala/Documents/GitHub/new/eurovision/map.c">
+>>>>>>> f847189fc5dcbbce5df20525d367545e9da66de4
 			<Option target="eurovition"/>
 		</Unit>
 		<Unit filename="C:/Users/DONTO/Documents/studies/part 2/eurovision/list.h">
