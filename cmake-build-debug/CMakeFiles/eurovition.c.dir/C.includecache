@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Ayala/Documents/GitHub/new/eurovision/map.c
+stdio.h
+-
+map.h
+C:/Users/Ayala/Documents/GitHub/new/eurovision/map.h
+stdlib.h
+-
+memory.h
+-
+
+C:/Users/Ayala/Documents/GitHub/new/eurovision/map.h
+stdbool.h
+-
+

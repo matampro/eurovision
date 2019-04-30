@@ -110,44 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named eurovition
+# Target rules for targets named eurovition.c
 
 # Build rule for target.
-eurovition: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 eurovition
-.PHONY : eurovition
+eurovition.c: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 eurovition.c
+.PHONY : eurovition.c
 
 # fast build rule for target.
-eurovition/fast:
-	$(MAKE) -f CMakeFiles\eurovition.dir\build.make CMakeFiles/eurovition.dir/build
-.PHONY : eurovition/fast
-
-eurovition.obj: eurovition.c.obj
-
-.PHONY : eurovition.obj
-
-# target to build an object file
-eurovition.c.obj:
-	$(MAKE) -f CMakeFiles\eurovition.dir\build.make CMakeFiles/eurovition.dir/eurovition.c.obj
-.PHONY : eurovition.c.obj
-
-eurovition.i: eurovition.c.i
-
-.PHONY : eurovition.i
-
-# target to preprocess a source file
-eurovition.c.i:
-	$(MAKE) -f CMakeFiles\eurovition.dir\build.make CMakeFiles/eurovition.dir/eurovition.c.i
-.PHONY : eurovition.c.i
-
-eurovition.s: eurovition.c.s
-
-.PHONY : eurovition.s
-
-# target to generate assembly for a file
-eurovition.c.s:
-	$(MAKE) -f CMakeFiles\eurovition.dir\build.make CMakeFiles/eurovition.dir/eurovition.c.s
-.PHONY : eurovition.c.s
+eurovition.c/fast:
+	$(MAKE) -f CMakeFiles\eurovition.c.dir\build.make CMakeFiles/eurovition.c.dir/build
+.PHONY : eurovition.c/fast
 
 map.obj: map.c.obj
 
@@ -155,7 +128,7 @@ map.obj: map.c.obj
 
 # target to build an object file
 map.c.obj:
-	$(MAKE) -f CMakeFiles\eurovition.dir\build.make CMakeFiles/eurovition.dir/map.c.obj
+	$(MAKE) -f CMakeFiles\eurovition.c.dir\build.make CMakeFiles/eurovition.c.dir/map.c.obj
 .PHONY : map.c.obj
 
 map.i: map.c.i
@@ -164,7 +137,7 @@ map.i: map.c.i
 
 # target to preprocess a source file
 map.c.i:
-	$(MAKE) -f CMakeFiles\eurovition.dir\build.make CMakeFiles/eurovition.dir/map.c.i
+	$(MAKE) -f CMakeFiles\eurovition.c.dir\build.make CMakeFiles/eurovition.c.dir/map.c.i
 .PHONY : map.c.i
 
 map.s: map.c.s
@@ -173,7 +146,7 @@ map.s: map.c.s
 
 # target to generate assembly for a file
 map.c.s:
-	$(MAKE) -f CMakeFiles\eurovition.dir\build.make CMakeFiles/eurovition.dir/map.c.s
+	$(MAKE) -f CMakeFiles\eurovition.c.dir\build.make CMakeFiles/eurovition.c.dir/map.c.s
 .PHONY : map.c.s
 
 # Help Target
@@ -182,12 +155,9 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... eurovition
+	@echo ... eurovition.c
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... eurovition.obj
-	@echo ... eurovition.i
-	@echo ... eurovition.s
 	@echo ... map.obj
 	@echo ... map.i
 	@echo ... map.s
