@@ -387,14 +387,14 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
     if (winnersMap == NULL) {
         return NULL;
     }
-    MAP_FOREACH(int*, iterator, eurovision->state->stateData->cityzenMap) {
+    MAP_FOREACH(int*, iterator, eurovision->state) {
         MapResult result = mapPut(winners_map, map->keyElement, 0); //we set the map with all states in the eurovision
         if (result == NULL){
             return NULL;
         }
     }
     MAP_FOREACH(int, iterator, eurovision->state) {
-        ListResult current_list = makeSortedListByMapData(map);
+        ListResult current_list = makeSortedListByMapData(map->stateData->cityzenVote);
         if (current_list == NULL){
             return NULL;
         }
@@ -416,6 +416,9 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
     MAP_FOREACH(int, iterator, eurovision->judge){
         // check that judge didnt vote for wrong state. if so remove judge
         for (int i = 0; i < NUMBER_OF_WINNERS; i++) {
+            if (!mapContains(winnersMap, judgeData->result[i]) {
+                return NULL;
+            }
             MapResult result = mapPut(winnersMap, map->keyElement, winners_map->data + place[i] * (TOTAL_PRECENT - audiencePrecent) / TOTAL_PRECENT);
             if (return == NULL){
                 return NULL;
