@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include "eurovision.h"
 #include <stdlib.h>
@@ -10,7 +11,7 @@
 #define TOTAL_PRECENT 100
 List makeSortedListByMapData(Map map);
 void PrintResult(List list);
-int place[NUMBER_OF_WINNERS] = (12, 10, 8, 7, 6, 5, 4, 3, 2, 1);
+int place[NUMBER_OF_WINNERS] = {12, 10, 8, 7, 6, 5, 4, 3, 2, 1};
 
 char* stringCopy(const char* str) {
     if(str == NULL){
@@ -381,12 +382,12 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
         return NULL;
     }
     int number_of_voted_states = MAX_NUMBER_OF_WINNERS;
-    WinnersMap winnersMap = mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeKeyElement,
+    Map winnersMap = mapCreate(copyVoteDataElement, copyKeyElement, freeVoteDataElement, freeKeyElement,
                                   compareKeyElements);      // we count the score here
     if (winnersMap == NULL) {
         return NULL;
     }
-    MAP_FOREACH(int, iterator, eurovision->state) {
+    MAP_FOREACH(int*, iterator, eurovision->state->stateData->cityzenMap) {
         MapResult result = mapPut(winners_map, map->keyElement, 0); //we set the map with all states in the eurovision
         if (result == NULL){
             return NULL;
@@ -413,6 +414,7 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
         }
     }
     MAP_FOREACH(int, iterator, eurovision->judge){
+        // check that judge didnt vote for wrong state. if so remove judge
         for (int i = 0; i < NUMBER_OF_WINNERS; i++) {
             MapResult result = mapPut(winnersMap, map->keyElement, winners_map->data + place[i] * (TOTAL_PRECENT - audiencePrecent) / TOTAL_PRECENT);
             if (return == NULL){
@@ -498,16 +500,3 @@ List eurovisionRunGetFriendlyStates(Eurovision eurovision){
 
 }
 
-
-
-
-/**
-//will be used for sorting the list
-int compareDataCurrentState(keyElement1, keyElement2) {
-if (mapGet(map->stateData->keyElement1) > mapGet(map->stateData->keyElement2)) {
-return keyElement1;
-} else {
-return keyElement2;
-}
-}
-**/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
