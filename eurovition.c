@@ -391,7 +391,7 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
         if (current_list == NULL) {
             return NULL;
         }
-        int compareDataCurrentState (keyElement1, keyWlwmwnt2){
+        int compareDataCurrentState (keyElement1, keyWlwmwnt2){                         //is that a function?
             if (mapGet(map->stateData->keyElement1) > mapGet(map->stateData->keyElement2)){
                 return keyElement1;
             } else{
@@ -405,7 +405,7 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
                 return NULL;
             }
         }
-        ListResult result = listSort(current_list, compareDataCurrentState); //compair Data need to be writen;    // sort by the data with key element in the map citizenvote
+        ListResult result = listSort(current_list, compareDataCurrentState); //compare Data need to be writen;    // sort by the data with key element in the map citizenvote
         if (result == NULL){
             return NULL;
         }

@@ -76,7 +76,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Ayala/Documents/GitHub/new/eurovision/eurovision.h">
+			<Option target="eurovition"/>
+		</Unit>
 		<Unit filename="C:/Users/Ayala/Documents/GitHub/new/eurovision/eurovition.c">
+			<Option target="eurovition"/>
+		</Unit>
+		<Unit filename="C:/Users/Ayala/Documents/GitHub/new/eurovision/list.h">
 			<Option target="eurovition"/>
 		</Unit>
 		<Unit filename="C:/Users/Ayala/Documents/GitHub/new/eurovision/map.c">
