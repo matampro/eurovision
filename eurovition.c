@@ -386,7 +386,7 @@ List eurovisionRunContest(Eurovision eurovision, int audiencePrecent) {
     if (winners_map == NULL) {
         return NULL;
     }
-    MAP_FOREACH(int, iterator, eurovision->state) {          // for each state
+    MAP_FOREACH(int, iterator, eurovision->state) {          // for each state  *int?
         ListResult current_list = listCreate(copyKeyElement, freeKeyElement);
         if (current_list == NULL) {
             return NULL;
